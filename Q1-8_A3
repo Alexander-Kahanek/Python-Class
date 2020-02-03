@@ -1,0 +1,122 @@
+# 8: Write a program that counts the number of even digits in the scope of 1—1000.
+
+count_even = 0
+for i in range(1000):
+    if ((i+1) % 2 == 0):
+        count_even = count_even + 1
+print("There are",count_even,"even numbers between 1-1000")
+
+# 2: Write a program which, given the length of two sides of a right-angled triangle,
+# returns the length of the hypotenuse.
+
+import math
+
+user_length_1 = float(input("Please enter one side of your right triangle: "))
+user_length_2 = float(input("Please enter the other side of your right triangle: "))
+
+hypotenuse = math.sqrt(user_length_1**2+ user_length_2**2)
+
+print("Your hypotenuse is: ", hypotenuse)
+
+# 3: Write a program which, given the length of three sides of a triangle,
+# will determine whether the triangle is right- angled. Assume that the third argument to the function is always the
+# longest side. It will return True if the triangle is right-angled, or False otherwise.
+
+length_1 = float(input("Please enter one side of your triangle: "))
+length_2 = float(input("Please enter one side of your triangle: "))
+length_3 = float(input("Please enter one side of your triangle: "))
+
+if (length_1**2 == length_2**2 + length_3**2):
+    right_triangle = True
+elif (length_2**2 == length_1**2 + length_3**2):
+    right_triangle = True
+elif (length_3**2 == length_1**2 + length_2**2):
+    right_triangle = True
+else:
+    right_triangle = False
+
+print(right_triangle)
+
+# 4: Write a program that uses a for loop to print(January to December)
+# One of the months of the year is January
+# One of the months of the year is February ...
+
+months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+for i in range(12):
+    print("One of the months of the year is", months[i])
+    
+# 5: Assume you have the assignment numbers = [12, 10, 32, 3, 66, 17, 42, 99, 20]
+# (a) Write a loop that adds all the numbers from the list into a variable called total.
+# You should set the total variable to have the value 0 before you start adding them up,
+# and print the value in total after the loop has completed.
+# (b)  Print the product of all the numbers in the list. (product means all multiplied together)
+
+numbers = [12, 10, 32, 3, 66, 17, 42, 99, 20]
+total = 0
+
+for i in range(9):
+    total = total + numbers[i]
+print("The sum of your numbers is:", total)
+
+total_product = 1
+for i in range(9):
+    total_product = total_product * numbers[i]
+print("The total product of your numbers is:",total_product)
+
+# 6: Use for loops to make a turtle draw these regular polygons
+# (regular means all sides the same lengths, all angles the same):
+# • An equilateral triangle
+# • A hexagon(six sides)
+
+import turtle
+window = turtle.Screen()
+alex = turtle.Turtle()
+turtle.shape("turtle")
+
+# Triangle
+alex.forward(200)
+for i in range (2):
+    alex.left(120)
+    alex.forward(200)
+
+alex.penup()
+
+alex.left(-60) #resets pen
+alex.forward(200)
+
+alex.pendown()
+
+#Hexagon
+for i in range(5):
+    alex.forward(150)
+    alex.left(72)
+
+turtle.done()
+
+# 7: A drunk pirate makes a random turn and then takes 100 steps forward, makes another random turn,
+# takes another 100 steps, turns another random amount, etc
+# A social science student records the angle of each turn before the next 100 steps are taken.
+# Her experimental data is [160, -43, 270, -97, -43, 200, -940, 17, -86].
+# (Positive angles are counter-clockwise.) Use a turtle to draw the path taken by our drunk friend.
+
+import turtle
+window = turtle.Screen()
+alex = turtle.Turtle()
+turtle.shape("turtle")
+
+drunk_angles = [160, -43, 270, -97, -43, 200, -940, 17, -86]
+
+for i in range(9):
+    alex.left(drunk_angles[i])
+    alex.forward(100)
+
+turtle.done()
+
+# 8: Write a program that counts the number of even digits in the scope of 1—1000.
+
+count_even = 0
+for i in range(1000):
+    if ((i+1) % 2 == 0):
+        count_even = count_even + 1
+print("There are",count_even,"even numbers between 1-1000")
