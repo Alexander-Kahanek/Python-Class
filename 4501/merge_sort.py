@@ -1,3 +1,13 @@
+# using python 3.9
+################
+# algorithm:
+# recursively divides left section first
+# divide until len is either 1 or 2
+# recursively merge small pieces, until left side is sorted
+# repeat with right side
+# merge final left and right splits
+# return final list
+
 def merge_lists(left, right):
     '''
     function merges left and right lists that are given from min to max.
@@ -37,7 +47,7 @@ def mergeSort(alist):
     function recursively divides alist, then merges each section until complete.
 
     input: alist | a sortable list, ie, [3,1,2], ['a', 'b', 'c']
-    output: a fully sorted list
+    output: a fully sorted list from min to max value
     '''
     # print(f'inside mergeSort with {alist}')
 
@@ -53,19 +63,21 @@ def mergeSort(alist):
     return merge_lists(left, right)
 
 
+print('*****************************************************')
+
 # problem statement
 alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-print(f'problem statement: {mergeSort(alist)}')
+print(f'** problem statement: {mergeSort(alist)}')
 
 # odd length list case
-print(f'problem statement: {mergeSort([9961, 14135, 52357, 12341, 0])}')
+print(f'odd length case: {mergeSort([9961, 14135, 52357, 12341, 0])}')
 
 # even length list case
 print(f'even length case: {mergeSort([3, 0, 12, 67])}')
 
 # decimals and negatives case
-print(
-    f'decimals and negatives case: {mergeSort([0.00004, -11, 0.25913651, 0.00000000000000000009])}')
+l = [0.00004, -11, 0.25913651, 0.00000000000000000009]
+print(f'decimals and negatives case: {mergeSort(l)}')
 
 # repeat numbers case
 print(f'repeat numbers case: {mergeSort([2,5,3,0,7,0,86,125,85,23,7,2,96,2])}')
