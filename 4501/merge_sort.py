@@ -89,7 +89,7 @@ print(f'tuple case: {mergeSort((3,1,90,59,197))}')
 print(f'character case: {mergeSort(["a", "q", "c", "z", "e"])}')
 
 # string case
-print(f'string case: {mergeSort("bqfdaeci")}')
+print(f'string case: {mergeSort("hello world")}')
 
 # single number list case
 print(f'single number list case: {mergeSort([12])}')
