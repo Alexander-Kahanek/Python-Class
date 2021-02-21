@@ -32,16 +32,18 @@ print(f'{f2} // {f1} = {f2 // f1}')
 # modulo
 print(f'{Fraction(7,1)} % {Fraction(2,1)} = {Fraction(7,1) % Fraction(2,1)}')
 # exponentiation
+# only works with a whole number as fraction 2
 print(f'{f1} ** {f2} = {f1 ** f2}')
-print(f'{Fraction(2,1)} ** {Fraction(5,4)} = {Fraction(2,1) ** Fraction(5,4)}')
-print(2**(5/4), (Fraction(2, 1) ** Fraction(5, 4)).float)
+# print(f'{Fraction(2,1)} ** {Fraction(5,4)} = {Fraction(2,1) ** Fraction(5,4)}')
+# print(2**(5/4), (Fraction(2, 1) ** Fraction(5, 4)).float)
 #####################
 
 print('--- simplifying ------------')
 
 print(f'{f1} = {f1.simplify()}')
 print(f'{f2} = {f2.simplify()}')
-print(f'18/6 = {Fraction(18,6).simplify()}')
+print(f'18/602 = {Fraction(18,602).simplify()}')
+print(f'72/144 = {Fraction(72,144).simplify()}')
 print(f'0/13 = {Fraction(0,10).simplify()}')
 ####################
 

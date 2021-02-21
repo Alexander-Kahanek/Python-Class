@@ -6,7 +6,7 @@ class Fraction:
     '''
 
     def __init__(self, numerator, denominator):
-        '''data'''
+        '''data'''  # a/b
         try:
             numerator/denominator
         except ZeroDivisionError as err:
@@ -33,12 +33,16 @@ class Fraction:
         return f'{self} reduces to  {self.whole} + ({self.remainder}/{self.d})'
 
     def simplify(self):
+        '''simplifies a fraction using greatest common denominator
+
+        -- only simplifies a fraction with a denominator less than 100, due to computation time
+        '''
         # how to simplify a fraction: n/d
         # check all numbers in [d, .., i, .., 1]
-        # if n % i and d % i
+        # if n % i and d % i are 0
         # then i is common factor
         # else no common factors -- simplified
-        for i in [self.d-k if self.d < 100 else k+1 for k in range(self.d)]:
+        for i in [self.d-k for k in range(self.d)]:
             if self.n % i == 0 and self.d % i == 0:
                 if i != 1:
                     # no need for recursively simplify
@@ -54,33 +58,41 @@ class Fraction:
         '''flips fraction from a/b to b/a'''
         return Fraction(self.d, self.n)
 
-    def __add__(self, other):
+    def __add__(self, other):  # a/b, c/d
         '''addition + '''
+        # a*d + c*b / b*d
         return Fraction((self.n*other.d) + (other.n*self.d), self.d*other.d)
 
-    def __sub__(self, other):
+    def __sub__(self, other):  # a/b, c/d
         '''subtraction - '''
+        # a*d - c*b / b*d
         return Fraction((self.n*other.d) - (other.n*self.d), self.d*other.d)
 
-    def __mul__(self, other):
+    def __mul__(self, other):  # a/b, c/d
         '''multiplication * '''
+        # a*c / b*d
         return Fraction(self.n*other.n, self.d*other.d)
 
-    def __truediv__(self, other):
+    def __truediv__(self, other):  # a/b, c/d
         '''division / '''
+        # a*d / b*c
         return Fraction(self.n*other.d, self.d*other.n)
 
-    def __mod__(self, other):
+    def __mod__(self, other):  # a/b, c/d
         '''modulo % '''
+        # a/b - c/d * (a/b // c/d)
         return self - other * (self // other)
 
-    def __floordiv__(self, other):
+    def __floordiv__(self, other):  # a/b, c/d
         '''floor division // '''
         return Fraction((self/other).whole, 1)
 
-    def __pow__(self, other):
-        '''exponentiation ** '''
+    def __pow__(self, other):  # a/b, c/d
+        '''exponentiation ** 
+
+        -- only works for fractions with 1 in the denominator as the power
+        '''
         a, b = ((self.n**other.n)**(1/other.d)).as_integer_ratio()
         c, d = ((self.d**other.n)**(1/other.d)).as_integer_ratio()
-        print(a, b, c, d)
+        # print(a, b, c, d)
         return Fraction(a*d, c*b).simplify()
